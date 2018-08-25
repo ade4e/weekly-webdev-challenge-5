@@ -166,9 +166,7 @@
           <img src="img/portfolio__eye.png" alt="">
         </div>
         <div class="portfolio__project portfolio__project--hidden"></div>
-
         <div class="portfolio__project portfolio__project--hidden"></div>
-
         <div class="portfolio__project portfolio__project--hidden collapse multi-collapse"></div>
         <div class="portfolio__project portfolio__project--hidden collapse multi-collapse"></div>
         <div class="portfolio__project portfolio__project--hidden collapse multi-collapse"></div>
@@ -345,6 +343,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script>
+
     $(window).scroll(function () {
       if ($(document).scrollTop() > 50) {
         $('nav').addClass('shrink');
@@ -352,8 +351,19 @@
         $('nav').removeClass('shrink');
       }
     });
-  </script>
-  <script>
+    // smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+
+        });
+      });
+    });
+
     // Activate scrollspy to add active class to navbar items on scroll
     $('body').scrollspy({
       target: '#navbarNav',
